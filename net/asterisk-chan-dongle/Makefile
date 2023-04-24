@@ -7,51 +7,49 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=asterisk-chan-dongle
-PKG_VERSION:=1.1-20180619
+PKG_NAME:=asterisk-chan-quectel
+PKG_VERSION:=1.2-20210918
 PKG_RELEASE:=1
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.xz
-PKG_SOURCE_URL:=https://github.com/wdoekes/asterisk-chan-dongle.git
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=fd544d628d134cfe9cc2df6b5315298e93698664
-PKG_MIRROR_HASH:=f6074feff5931024e5ac9504ffc872c58b650352e29343969327c5205228fc2f
 PKG_SOURCE_PROTO:=git
+PKG_SOURCE_URL:=https://github.com/etnperlong/asterisk-chan-quectel.git
+PKG_SOURCE_VERSION:=ddcc56cb7d1115edf5d735a9a9b8fd42e6229303
+PKG_SOURCE_DATE=2021-09-18
+PKG_MIRROR_HASH:=ee0734e9bcf0ec7ae1b4ccb6ee08ecb0924231869c2ff6e306afb4a74343fcdf
 
 PKG_FIXUP:=autoreconf
 
 PKG_LICENSE:=GPL-2.0
 PKG_LICENSE_FILES:=COPYRIGHT.txt LICENSE.txt
-PKG_MAINTAINER:=Jiri Slachta <jiri@slachta.eu>
-
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(BUILD_VARIANT)/$(PKG_NAME)-$(PKG_VERSION)
+PKG_MAINTAINER:=spacedream <spacedream@tutamail.com>
 
 MODULES_DIR:=/usr/lib/asterisk/modules
 
+
 include $(INCLUDE_DIR)/package.mk
-# asterisk-chan-dongle needs iconv
+# asterisk-chan-quectel needs iconv
 include $(INCLUDE_DIR)/nls.mk
 
-define Package/asterisk-chan-dongle/Default
+define Package/asterisk-chan-quectel/Default
   SUBMENU:=Telephony
   SECTION:=net
   CATEGORY:=Network
-  URL:=https://github.com/wdoekes/asterisk-chan-dongle
+  URL:=https://github.com/wdoekes/asterisk-chan-quectel
   DEPENDS:=$(ICONV_DEPENDS) +kmod-usb-acm +kmod-usb-serial +kmod-usb-serial-option +libusb-1.0 +usb-modeswitch
-  TITLE:=Huawei UMTS 3G dongle support
+  TITLE:=Quectel EC25 modem support
 endef
 
-define Package/asterisk16-chan-dongle
-$(call Package/asterisk-chan-dongle/Default)
+define Package/asterisk16-chan-quectel
+$(call Package/asterisk-chan-quectel/Default)
   DEPENDS+=asterisk16
   VARIANT:=asterisk16
 endef
 
 define Package/description/Default
- Asterisk channel driver for Huawei UMTS 3G dongle.
+ Asterisk channel driver for Quectel EC25 modem.
 endef
 
-Package/asterisk16-chan-dongle/description = $(Package/description/Default)
+Package/asterisk16-chan-quectel/description = $(Package/description/Default)
 
 ifeq ($(BUILD_VARIANT),asterisk16)
   CHAN_DONGLE_AST_HEADERS:=$(STAGING_DIR)/usr/include/asterisk-16/include
@@ -73,18 +71,18 @@ CONFIGURE_VARS += \
 	ac_cv_type_ssize_t=yes
 
 define Package/conffiles/Default
-/etc/asterisk/dongle.conf
+/etc/asterisk/quectel.conf
 endef
 
-Package/asterisk16-chan-dongle/conffiles = $(Package/conffiles/Default)
+Package/asterisk16-chan-quectel/conffiles = $(Package/conffiles/Default)
 
 define Package/Install/Default
 	$(INSTALL_DIR) $(1)/etc/asterisk
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/etc/dongle.conf $(1)/etc/asterisk
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/etc/quectel.conf $(1)/etc/asterisk
 	$(INSTALL_DIR) $(1)$(MODULES_DIR)
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/chan_dongle.so $(1)$(MODULES_DIR)
+	$(INSTALL_BIN) $(PKG_BUILD_DIR)/chan_quectel.so $(1)$(MODULES_DIR)
 endef
 
-Package/asterisk16-chan-dongle/install = $(Package/Install/Default)
+Package/asterisk16-chan-quectel/install = $(Package/Install/Default)
 
-$(eval $(call BuildPackage,asterisk16-chan-dongle))
+$(eval $(call BuildPackage,asterisk16-chan-quectel))
