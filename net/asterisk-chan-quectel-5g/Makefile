@@ -14,7 +14,7 @@ PKG_RELEASE:=1
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/huanghitoy/asterisk-chan-quectel-5g.git
 PKG_SOURCE_VERSION:=b3534eaedce52819ee3f61db6d191ed35177b955
-PKG_SOURCE_DATE=2022-09-08
+PKG_SOURCE_DATE=2024-07-27
 PKG_MIRROR_HASH:=50a69010c61383cbedd102a290f39abc6d74b760fb0d4d1bd997ad38a7cf07d9
 
 PKG_FIXUP:=autoreconf
@@ -38,7 +38,7 @@ define Package/asterisk-chan-quectel-5g
   TITLE:=Quectel RM500U-CN RM500Q modem support
 endef
 
-define Package/asterisk-chan-quectel/description
+define Package/asterisk-chan-quectel-5g/description
  Asterisk channel driver for Quectel RM500U-CN RM500Q modem.
 endef
 
