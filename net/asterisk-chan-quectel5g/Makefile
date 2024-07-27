@@ -14,7 +14,7 @@ PKG_SOURCE_URL:=https://github.com/huanghitoy/asterisk-chan-quectel-5g.git
 PKG_SOURCE_VERSION:=a5915af36f22dfc6f0eeec20b743e910bb423e1b
 PKG_SOURCE_DATE=2024-07-27
 PKG_RELEASE:=1
-PKG_MIRROR_HASH:=9b478f30865f0c408bf372aea6ae0e6fe2aa831a152ad79d864965d8de076884
+PKG_MIRROR_HASH:=
 
 PKG_FIXUP:=autoreconf
 
@@ -34,11 +34,11 @@ define Package/asterisk-chan-quectel5g
   CATEGORY:=Network
   URL:=https://github.com/IchthysMaranatha/asterisk-chan-quectel
   DEPENDS:=asterisk $(ICONV_DEPENDS) +kmod-usb-acm +kmod-usb-serial +kmod-usb-serial-option +libusb-1.0 +usb-modeswitch +alsa-lib
-  TITLE:= Asterisk Mobile Telephony Module for quectel chips
+  TITLE:= Asterisk Mobile Telephony Module for quectel5g chips
 endef
 
 define Package/asterisk-chan-quectel5g/description
- Asterisk channel driver for quectel chips.
+ Asterisk channel driver for quectel5g chips.
 endef
 
 CONFIGURE_ARGS+= \
