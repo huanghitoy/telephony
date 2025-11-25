@@ -11,8 +11,8 @@ PKG_NAME:=asterisk-chan-quectel-5g
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/fevenor/asterisk-chan-quectel-5g.git
-PKG_SOURCE_VERSION:=881cae5c93afb2268c169f7d17d268ea869c0b3e
-PKG_SOURCE_DATE=2024-04-25
+PKG_SOURCE_VERSION:=8066ee81e6bdf5b79f0650c120d9b3bb365026fc
+PKG_SOURCE_DATE=2024-1-16
 PKG_RELEASE:=0.1
 
 PKG_FIXUP:=autoreconf
