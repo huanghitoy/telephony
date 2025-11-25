@@ -10,9 +10,9 @@ include $(TOPDIR)/rules.mk
 PKG_NAME:=asterisk-chan-quectel-5g
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/koreapyj/asterisk-chan-quectel-5g.git
-PKG_SOURCE_VERSION:=e18317de8769300f83a9c0a8663c5a9d99c60936
-PKG_SOURCE_DATE=2022-09-16
+PKG_SOURCE_URL:=https://github.com/fevenor/asterisk-chan-quectel-5g.git
+PKG_SOURCE_VERSION:=881cae5c93afb2268c169f7d17d268ea869c0b3e
+PKG_SOURCE_DATE=2024-04-25
 PKG_RELEASE:=0.1
 
 PKG_FIXUP:=autoreconf
