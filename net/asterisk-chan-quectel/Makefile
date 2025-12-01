@@ -9,9 +9,9 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=asterisk-chan-quectel
 
-PKG_SOURCE_URL:=https://github.com/hayzamjs/asterisk-chan-quectel.git
-PKG_SOURCE_VERSION:=cc5c765164cb72d4c042db84e922ba3e6205e378
-PKG_SOURCE_DATE:=2024-05-10
+PKG_SOURCE_URL:=https://github.com/IchthysMaranatha/asterisk-chan-quectel.git
+PKG_SOURCE_VERSION:=b3534eaedce52819ee3f61db6d191ed35177b955
+PKG_SOURCE_DATE:=2022-09-22
 PKG_SOURCE_PROTO:=git
 PKG_RELEASE:=1
 
